@@ -14,6 +14,7 @@ After
 `vlog --help` will show the flags to the executable script `vlog`.
 
 EXAMPLE
+=======
 
 In Python,
 
