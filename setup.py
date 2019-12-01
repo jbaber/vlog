@@ -9,7 +9,7 @@ setup(
   license = "GPLv3",
   url = "https://github.com/jbaber/vlog",
   packages = ['vlog'],
-  install_requires = [],
+  install_requires = ["docopt",],
   entry_points = {
     'console_scripts': ['vlog=vlog.vlog:main'],
   }
