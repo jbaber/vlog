@@ -3,9 +3,9 @@ which simply does `print(*args, **kwargs)` iff `log_level >= vlog.GLOBAL_LOG_LEV
 
 Also provides a command line wrapper so you can call
 
-    vlog log_level "Some words"
+    vlog <log_level> "Some words"
 
-to get appropriate echoing on the command line if $log_level >= $GLOBAL_VLOG_LEVEL
+to get appropriate echoing on the command line if <log_level> >= $GLOBAL_VLOG_LEVEL
 
 After
 
