@@ -5,7 +5,7 @@ Also provides a command line wrapper so you can call
 
     vlog <log_level> "Some words"
 
-to get appropriate echoing on the command line if <log_level> >= $GLOBAL_VLOG_LEVEL
+to get appropriate echoing on the command line if `<log_level> >= $GLOBAL_VLOG_LEVEL`
 
 After
 
