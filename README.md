@@ -7,11 +7,10 @@ Also provides a command line wrapper so you can call
 
 to get appropriate echoing on the command line if `$GLOBAL_VLOG_LEVEL >= <log_level> `
 
-After
+INSTALL
+=======
 
-    pip3 install .
-
-`vlog --help` will show the flags to the executable script `vlog`.
+    $ pip3 install vlog
 
 EXAMPLE
 =======
