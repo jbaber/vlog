@@ -23,10 +23,10 @@ Options:
 -h, --help                       This help
 -v, --version                    Print version and exit
 <log_level>                      This program will only echo if
-                                 <log_level> >= $GLOBAL_VLOG_LEVEL
+                                 $GLOBAL_VLOG_LEVEL >= <log_level> 
 """.format(sys.argv[0])
 
-  args = docopt(doc, version="2.0.0")
+  args = docopt(doc, version="2.0.1")
 
   log_level = args['<log_level>']
   try:

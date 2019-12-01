@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
   name = "vlog",
-  version = "2.0.0",
+  version = "2.0.1",
   author = "John Baber-Lucero",
   author_email = "pypi@frundle.com",
   description = ("log functions with arbitrary verbosity"),
