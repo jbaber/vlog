@@ -2,7 +2,7 @@ GLOBAL_LOG_LEVEL = 0
 
 def vlog(log_level, *args, **kwargs):
   try:
-    if log_level >= GLOBAL_LOG_LEVEL:
+    if GLOBAL_LOG_LEVEL >= log_level:
       print(*args, **kwargs)
   except NameError as e:
     # No global GLOBAL_LOG_LEVEL was set, so do
@@ -26,7 +26,7 @@ Options:
                                  <log_level> >= $GLOBAL_VLOG_LEVEL
 """.format(sys.argv[0])
 
-  args = docopt(doc, version="1.0.0")
+  args = docopt(doc, version="2.0.0")
 
   log_level = args['<log_level>']
   try:
