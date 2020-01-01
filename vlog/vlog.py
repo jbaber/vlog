@@ -1,8 +1,21 @@
 GLOBAL_LOG_LEVEL = 0
 
 def vlog(log_level, *args, **kwargs):
+  """
+  print(*args, **kwargs) iff vlog.GLOBAL_LOG_LEVEL >= log_level
+
+  Optional keyword arguments:
+    indent          If true, indent with `log_level` spaces
+    indent_string   If given, use this string instead of spaces
+                    for indenting
+  """
   try:
     if GLOBAL_LOG_LEVEL >= log_level:
+      if "indent" in kwargs:
+        indent_string = " "
+        if "indent_string" in kwargs:
+          indent_string = kwargs["indent_string"]
+        print(indent_string * log_level, end="")
       print(*args, **kwargs)
   except NameError as e:
     # No global GLOBAL_LOG_LEVEL was set, so do
@@ -24,9 +37,15 @@ Options:
 -v, --version                    Print version and exit
 <log_level>                      This program will only echo if
                                  $GLOBAL_VLOG_LEVEL >= <log_level> 
+-i, --indent                     Lines will be indented with
+                                 <log_level> spaces
+-s, --indent-string=<chars>      Indent with <chars> instead of spaces
+                                 [DEFAULT: " "]
 """.format(sys.argv[0])
 
-  args = docopt(doc, version="2.0.1")
+  args = docopt(doc, version="2.1.0")
+  print(args)
+  exit(0)
 
   log_level = args['<log_level>']
   try:
