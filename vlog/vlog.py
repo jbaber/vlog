@@ -12,10 +12,14 @@ def vlog(log_level, *args, **kwargs):
   try:
     if GLOBAL_LOG_LEVEL >= log_level:
       if "indent" in kwargs:
+        indent = kwargs["indent"]
+        kwargs.pop("indent")
         indent_string = " "
         if "indent_string" in kwargs:
           indent_string = kwargs["indent_string"]
-        print(indent_string * log_level, end="")
+          kwargs.pop("indent_string")
+        if indent:
+          print(indent_string * log_level, end="")
       print(*args, **kwargs)
   except NameError as e:
     # No global GLOBAL_LOG_LEVEL was set, so do
@@ -40,12 +44,10 @@ Options:
 -i, --indent                     Lines will be indented with
                                  <log_level> spaces
 -s, --indent-string=<chars>      Indent with <chars> instead of spaces
-                                 [DEFAULT: " "]
+                                 [DEFAULT:  ]
 """.format(sys.argv[0])
 
   args = docopt(doc, version="2.1.0")
-  print(args)
-  exit(0)
 
   log_level = args['<log_level>']
   try:
@@ -68,5 +70,7 @@ Options:
         " an integer")
     exit(1)
 
+
   # Finally, actually do stuff
-  vlog(log_level, " ".join(args["<stuff-to-echo>"]))
+  vlog(log_level, " ".join(args["<stuff-to-echo>"]), indent=args["--indent"],
+      indent_string=args["--indent-string"])
